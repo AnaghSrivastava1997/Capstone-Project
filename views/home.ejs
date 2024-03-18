@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1 class="container-fluid p-2 bg-primary text-white text-center">You Can Edit Your Post</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>These are the article</h4>
+        </div>
+        <div class="col-md-8">
+            <ul>
+                <% myArray.forEach(myArray=> {%>
+                    <li>
+                        <a class="p-2 text-dark text-decoration-none" href="/<%=myArray.article%>">
+                            <%= myArray.article %>
+                        </a>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
+
+    </div>
+    </br>
+
+
+    <% if(locals.post){ console.log(post); %>
+        <div class="container h-100">
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col-6">
+                    <form action="/update" method="POST">
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label">Article Name:</label>
+                            <input type="text" class="form-control" id="article" name="article" value="<%= post[0].article %>">
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="comment">Post:</label>
+                            <textarea class="form-control" rows="5" id="post" name="post"><%= post[0].post %></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 text-xxl-start">
+                                <a class="p-2 text-dark text-decoration-none" href="/delete/<%=post[0].article%>">
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                </a>
+                                
+                            </div>
+                            <div class="col-6 text-xxl-end">
+                                <button type="submit" class="btn btn-success">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <% } %>
+</body>
+
+</html>

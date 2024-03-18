@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="../public/css/mycss.css" rel="stylesheet" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <h1 class="container-fluid p-2 bg-primary text-white text-center">BLOG APPLICATION</h1>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h3 class="my-0 mr-md-auto">Write A Blog Here !</h3>
+    <nav class="my-2 my-md-0 mr-md-3 ms-xxl-auto">
+      <a class="p-2 text-dark" href="home">Home</a>
+      <a class="p-2 text-dark" href="#">Sign Up</a>
+      <a class="p-2 text-dark" href="#">Log In</a>
+    </nav>
+  </div>
+
+  <!-- form -->
+
+  <div class="container h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-6">
+        <form action="/submit" method="POST">
+          <div class="mb-3 mt-3">
+            <label for="email" class="form-label">Article Name:</label>
+            <input type="text" class="form-control" id="article" placeholder="Enter Text" name="article">
+          </div>
+          <div class="mb-3">
+            <label for="comment">Post:</label>
+            <textarea class="form-control" rows="5" id="post" name="post"></textarea>
+          </div>
+          <div class="mb-3 text-xxl-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <% if(locals.flag){ %>
+
+    <h3>Your post has submitted.</h3>
+
+    <% } %>
+</body>
+
+</html>
